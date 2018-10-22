@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subj_id: MyString
+  cour_id: MyString
+
+two:
+  subj_id: MyString
+  cour_id: MyString

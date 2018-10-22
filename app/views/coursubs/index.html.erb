@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Coursubs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subj</th>
+      <th>Cour</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coursubs.each do |coursub| %>
+      <tr>
+        <td><%= coursub.subj_id %></td>
+        <td><%= coursub.cour_id %></td>
+        <td><%= link_to 'Show', coursub %></td>
+        <td><%= link_to 'Edit', edit_coursub_path(coursub) %></td>
+        <td><%= link_to 'Destroy', coursub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coursub', new_coursub_path %>

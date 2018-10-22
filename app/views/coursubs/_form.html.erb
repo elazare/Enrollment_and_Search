@@ -1,0 +1,27 @@
+<%= form_with(model: coursub, local: true) do |form| %>
+  <% if coursub.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coursub.errors.count, "error") %> prohibited this coursub from being saved:</h2>
+
+      <ul>
+      <% coursub.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :subj_id %>
+    <%= form.text_field :subj_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cour_id %>
+    <%= form.text_field :cour_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class Coursub < ApplicationRecord
+end
