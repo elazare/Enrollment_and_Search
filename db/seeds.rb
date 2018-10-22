@@ -8,6 +8,11 @@
 
 require 'json'
 
+Course.destroy_all
+Instructor.destroy_all
+Subject.destroy_all
+Coursub.destroy_all
+
 courJson = JSON.parse(File.read("/home/eli/Enrollment_and_Search/db/course.json"))
 instJson = JSON.parse(File.read("/home/eli/Enrollment_and_Search/db/instructor.json"))
 subjJson = JSON.parse(File.read("/home/eli/Enrollment_and_Search/db/subject.json"))
@@ -16,7 +21,7 @@ i = 0
 while subjJson[i] != nil
     subject = Subject.new do |s|
         s.name = subjJson[i]["name"]
-        s.id = subjJson[i]["id"]
+        s.subj_id = subjJson[i]["id"]
     end
     subject.save
     i += 1
@@ -24,7 +29,7 @@ end
 
 i = 0
 
-while courJson != nil
+while courJson[i] != nil
     course = Course.new do |c|
         c.name = courJson[i]["name"]
         c.description = courJson[i]["description"]
@@ -33,11 +38,13 @@ while courJson != nil
     course.save
     j = 0
     while courJson[i]["subjects"][j] != nil
-        coursub = Coursub.new do |cs|
-            cs.subj_id = courJson[i]["subjects"][j]["id"]
-            cs.cour_id = course.abbreviation
+        if Subject.exists?(subj_id: courJson[i]["subjects"][j]["id"])
+            coursub = Coursub.new do |cs|
+                cs.subj_id = Subject.where(subj_id: courJson[i]["subjects"][j]["id"]).first.id
+                cs.cour_id = course.id
+            end
+            coursub.save
         end
-        course.save
         j += 1
     end
     i += 1
