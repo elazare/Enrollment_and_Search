@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  id: MyString
+  name: Math
+  id: 69-420
 
 two:
-  name: MyString
-  id: MyString
+  name: English
+  id: 420-69
