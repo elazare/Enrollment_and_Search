@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/help'
   get 'static_pages/about'
+  post '/signup',  to: 'users#create'
   resources :coursubs
   resources :courses
   resources :subjects
