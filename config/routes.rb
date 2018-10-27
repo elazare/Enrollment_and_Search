@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'search/course:string'
-  get 'search/subject:string'
-  get 'search/usesubj:boolean'
+  get 'search/new'
+  get 'search/create'
+  get 'search/show'
   get 'user/index'
   get 'sessions/new'
   root 'static_pages#home'
@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/search', to: 'static_pages#search'
-  get '/results', to: 'static_pages#results'
   resources :courses
   resources :subjects
   resources :instructors
