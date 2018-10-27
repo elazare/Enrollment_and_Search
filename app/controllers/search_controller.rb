@@ -1,10 +1,11 @@
 class SearchController < ApplicationController
-  def course:string
+  def new
+    @search = Search.find(params[:id])
   end
 
-  def subject:string
+  def create
   end
 
-  def usesubj:boolean
+  def show
   end
 end
