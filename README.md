@@ -5,4 +5,6 @@ It's possible to create a user, log in, and navigate somehow to the search page;
 
 Eli Esrig
 
+GitHub site: https://github.com/elazare/Enrollment_and_Search
 
+I couldn't seem to get Heroku working, I'm afraid. 
