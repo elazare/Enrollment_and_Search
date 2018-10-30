@@ -1,2 +1,13 @@
-<h1>Search#course:string</h1>
-<p>Find me in app/views/search/course:string.html.erb</p>
+<% provide(:title, "Search Results") %>
+<div class="row">
+  <aside class="col-md-4">
+    <h1>
+        Results
+    </h1>
+    <section class="search_results">
+      <h3>
+        <%= parse_results @search %>
+      </h3>
+    </section>
+  </aside>
+</div>

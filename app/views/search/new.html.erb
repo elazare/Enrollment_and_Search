@@ -3,15 +3,14 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-  <%= form_for(@search, url: search_path) do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= label_tag :course_name %>
-    <%= text_field_tag(:course_name) %>
-    <%= label_tag :subject %>
-    <%= select_tag(:subject_name, options_for_select(Subject.all.map{ |s| s.name})) %>
-    <%= check_box_tag(:use_subjects) %>
-    <%= label_tag(:use_subjects, "Use Subjects in Search") %>
-    <%= submit_tag("Search") %>
+  <%= form_for(@search, url: searches_create_path) do |f| %>
+    <%= f. label :course %>
+    <%= f.text_field :course %>
+    <%= f. label :subject %>
+    <%= f.select :subject, Subject.all.map{ |s| s.name }  %>
+    <%= f. label :usesubj %>
+    <%= f.check_box :usesubj %>
+    <%= f.submit %>
   <% end %>
   </div>
 </div>

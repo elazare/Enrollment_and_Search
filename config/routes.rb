@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'search/new'
+  get 'searches/show'
+  get 'searches/new'
+  get 'searches/create'
   get 'search/create'
-  get 'search/show'
+  post 'searches/show'
+  post 'searches/create'
+  post 'search/show', to: 'search#show'
   get 'user/index'
   get 'sessions/new'
   root 'static_pages#home'
@@ -16,4 +20,5 @@ Rails.application.routes.draw do
   resources :subjects
   resources :instructors
   resources :users
+  resources :search
 end
