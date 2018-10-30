@@ -6,14 +6,19 @@ module SearchesHelper
             courses_edited = Coursubs.where(subj_id: subjID)
             final_cour = {}
             courses_edited.each do |cs|
-                clas = courses.select(|c| c.abbreviation == cs.cour_id).first
+                clas = nil
+                courses.each do |c|
+                    if c.abbreviation == cs.cour_id
+                        clas = c 
+                    end
+                end
                 if clas != nil
                     final_cour.push(clas)
                 end
             end
-            final_cour
+            return final_cour.map{|c| c.name}
         else
-            return courses
+            return courses.map{|c| c.name}
         end
     end
 end
