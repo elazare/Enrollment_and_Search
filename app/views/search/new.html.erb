@@ -3,14 +3,15 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-  <%= form_for(@search, url: searches_create_path) do |f| %>
-    <%= f. label :course %>
-    <%= f.text_field :course %>
-    <%= f. label :subject %>
-    <%= f.select :subject, Subject.all.map{ |s| s.name }  %>
-    <%= f. label :usesubj %>
-    <%= f.check_box :usesubj %>
-    <%= f.submit %>
+  <%= form_tag ajax_path, remote: true, method: :get do %>
+    <%= token_tag(nil) %>
+    <%= label_tag :course %>
+    <%= text_field_tag :course %>
+    <%= label_tag :subject %>
+    <%= select_tag :subject, Subject.all.map{ |s| s.name }  %>
+    <%= label_tag :usesubj %>
+    <%= check_box_tag :usesubj %>
+    <%= submit_tag %>
   <% end %>
   </div>
 </div>

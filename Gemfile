@@ -74,3 +74,5 @@ gem 'json'
 gem 'activerecord-import'
 gem "better_errors"
 gem "pry-rails"
+
+gem 'jquery-rails'

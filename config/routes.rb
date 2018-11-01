@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  get 'searches/show'
-  get 'searches/new'
-  get 'searches/create'
-  get 'search/create'
-  post 'searches/show'
-  post 'searches/create'
+  get 'search/new'
+  post 'search/new'
+  post 'search/create/:search_id', to: 'search#create'
   post 'search/show', to: 'search#show'
   get 'user/index'
   get 'sessions/new'
@@ -16,6 +13,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+  get '/ajax', to: 'search#search'
   resources :courses
   resources :subjects
   resources :instructors
